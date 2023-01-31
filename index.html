@@ -10,9 +10,10 @@
 
  <body>
   
+
 <div class="iframe-container">
-  <iframe id="myIframe" class="game-pc" src="CraneGame.html" width="1280" height="720" scrolling="no"></iframe>
-  <div class="fullscreen-btn" onclick="toggleFullscreen('myIframe')">
+  <iframe id="myIframe"  src="CraneGame.html" width="1280" height="720" scrolling="no"></iframe>
+  <div class="fullscreen-btn" onclick="toggleFullscreen()">
     <i class="fa fa-expand"></i>
   </div>
 </div>
@@ -49,9 +50,11 @@
     border: none;
     display: block;
     margin: auto;
-  
-
     
+}
+
+.iframe-container iframe {
+  overflow: hidden;
 }
   
 
@@ -61,35 +64,18 @@
 
  </style>
 
- <script>
-  function toggleFullscreen(id) {
-    var iframe = document.querySelector("#" + id);
-    if (iframe.requestFullscreen) {
-      if (!document.fullscreenElement) {
-        iframe.requestFullscreen();
-      } else {
-        document.exitFullscreen();
-      }
-    } else if (iframe.mozRequestFullScreen) {
-      if (!document.mozFullScreenElement) {
-        iframe.mozRequestFullScreen();
-      } else {
-        document.mozCancelFullScreen();
-      }
-    } else if (iframe.webkitRequestFullscreen) {
-      if (!document.webkitFullscreenElement) {
-        iframe.webkitRequestFullscreen();
-      } else {
-        document.webkitExitFullscreen();
-      }
-    } else if (iframe.msRequestFullscreen) {
-      if (!document.msFullscreenElement) {
-        iframe.msRequestFullscreen();
-      } else {
-        document.msExitFullscreen();
-      }
-    }
+
+<script>
+  var iframe = document.querySelector("#myIframe");
+
+  function toggleFullscreen() {
+    var viewportHeight = window.innerHeight;
+    var viewportWidth = window.innerWidth;
+    iframe.style.height = viewportHeight + "px";
+    iframe.style.width = viewportWidth + "px";
   }
 </script>
+
+
 
 
