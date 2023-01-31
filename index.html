@@ -68,14 +68,12 @@
 <script>
   var iframe = document.querySelector("#myIframe");
 
-  function toggleFullscreen() {
-    var viewportHeight = window.innerHeight;
-    var viewportWidth = window.innerWidth;
-    iframe.style.height = viewportHeight + "px";
-    iframe.style.width = viewportWidth + "px";
-  }
+function toggleFullscreen() {
+  document.body.style.height = "100vh";
+  document.body.style.width = "100vw";
+  document.body.style.overflow = "hidden";
+}
 </script>
-
 
 
 
